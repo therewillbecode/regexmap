@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/therewillbecode/air_listing_processing/issues"
   },
-  "homepage": "https://github.com/therewillbecode/air_listing_processing"
+  "homepage": "https://github.com/therewillbecode/air_listing_processing",
+  "dependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.0.2"
+  }
 }
