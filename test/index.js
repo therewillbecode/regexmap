@@ -1,10 +1,13 @@
 'use strict';
 
+var fs = require('fs');
 var chai = require('chai');
 var expect = require('chai').expect;
 
-var index = require('..\\src\\index.js');
+var index = require('../src/index.js');
 
+var listing1 = fs.readFileSync('fixtures/listing1.txt', "utf8");
+var listing2 = fs.readFileSync('fixtures/listing2.txt', "utf8");
 
 describe( 'Top level suite', function() {
  
