@@ -8,6 +8,8 @@ var index = require('../src/index.js');
 
 var listing1 = fs.readFileSync('fixtures/listing1.txt', "utf8");
 var listing2 = fs.readFileSync('fixtures/listing2.txt', "utf8");
+const TESTING = true;
+
 
 describe( 'Top level suite', function() {
  

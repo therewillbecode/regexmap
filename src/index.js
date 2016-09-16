@@ -1,0 +1,22 @@
+  let privateVariable = 10;
+
+  let privateMethod = () => {
+    console.log('Inside a private method!');
+    privateVariable++;
+  }
+
+  let getDataPublic = () => {
+    console.log('This is a method I want to expose!');
+  }
+
+
+if(TESTING) {
+     export default {
+           privateMethod: private,
+           getData: public
+     } 
+} else {
+    export default {
+         public: public
+    }
+}
