@@ -13,6 +13,6 @@
 
 
 module.exports = {
-           privateMethod: privateMethod,
-           extracts: getData
+  privateMethod: privateMethod,
+  extracts: getData
 } 
