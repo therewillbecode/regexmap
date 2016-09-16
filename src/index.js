@@ -12,12 +12,7 @@
   }
 
 
-if(4) {
-     module.exports = {
+module.exports = {
            privateMethod: privateMethod,
            extracts: getData
-     } 
-} else {
-    module.exports = {
-         extracts: getData    }
-}
+} 
