@@ -1,5 +1,4 @@
 'use strict';
-var TESTING=null;
 
   let privateVariable = 10;
 
@@ -8,17 +7,17 @@ var TESTING=null;
     privateVariable++;
   }
 
-  let getDataPublic = () => {
+  let getData = () => {
     console.log('This is a method I want to expose!');
   }
 
 
-if(TESTING) {
+if(4) {
      module.exports = {
            privateMethod: privateMethod,
-           getData: getDataPublic
+           extracts: getData
      } 
 } else {
     module.exports = {
-         public: getDataPublic    }
+         extracts: getData    }
 }
