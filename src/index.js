@@ -1,3 +1,6 @@
+'use strict';
+var TESTING=null;
+
   let privateVariable = 10;
 
   let privateMethod = () => {
@@ -11,12 +14,11 @@
 
 
 if(TESTING) {
-     export default {
-           privateMethod: private,
-           getData: public
+     module.exports = {
+           privateMethod: privateMethod,
+           getData: getDataPublic
      } 
 } else {
-    export default {
-         public: public
-    }
+    module.exports = {
+         public: getDataPublic    }
 }
