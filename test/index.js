@@ -56,15 +56,15 @@ describe('get data', function() {
 
 describe('get match', function() {
     it('should be return an array', function() {
-        expect(index.getMatch(listing1, testRegexp)).to.be.an('array');
+        expect(index.getMatch(testRegexp, listing1)).to.be.an('array');
     });
 
     it('array should contain regex match', function() {
-        expect(index.getMatch(listing1, testRegexp)).to.contain('London');
+        expect(index.getMatch(testRegexp, listing1)).to.contain('London');
     });
 
     it('should return null if no match', function() {
-        expect(index.getMatch('testString', testRegexp)).to.be.a('null');
+        expect(index.getMatch(testRegexp, 'testString')).to.be.a('null');
     });
 
     it('should throw TypeError if arg 2 is not a valid regex', function() {

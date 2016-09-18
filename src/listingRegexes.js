@@ -1,4 +1,5 @@
 'use strict';
+const escapeStringRegexp = require('escape-string-regexp');
 
 class listingRegexes {
 	constructor() {

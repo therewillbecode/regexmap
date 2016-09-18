@@ -1,9 +1,8 @@
 'use strict';
 
-var _ = require('lodash');
+const _ = require('lodash');
 
-var listingRegexesClass = require('../src/listingRegexes.js').listingRegexes;
-
+const listingRegexesClass = require('../src/listingRegexes.js').listingRegexes;
 let listingRegexes = new listingRegexesClass;
 
 // RegexObj stores list of regular expressions to extract each data point
@@ -12,15 +11,13 @@ let getData = (ListingText, regexObj) => {
     return {}
   }
 
-  return mapRegexps;
-
+  return {};
 }
 
 // returns object of matches for regexps
 let mapRegexps = (regexpObject, myString) => _.mapValues(regexpObject, getMatch);
-
 // matches regex and returns given group
-let getMatch = (myString, regexp) =>  myString.match(regexp);
+let getMatch = (regexp, myString) =>  myString.match(regexp); 
 
 
 module.exports = {
