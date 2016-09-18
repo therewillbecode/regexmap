@@ -9,7 +9,6 @@ var index = require('../src/index.js');
 var listing1 = fs.readFileSync('./test/fixtures/listing1.txt', "utf8");
 var listing2 = fs.readFileSync('./test/fixtures/listing2.txt', "utf8");
 let testRegexp = /(?:","truncated_localized_city":")([\w ]+)/
-
  
 describe('get data', function() {
 
@@ -82,6 +81,10 @@ describe('mapRegexps', function() {
         'lng': /(?:"lng":)([+-]?(?:\d*\.)?\d+)/,
         'lat': /(?:"lat":)([+-]?(?:\d*\.)?\d+)/
     };
+
+    it('should return an object', function() {
+        expect(index.getMatch(testRegexp, listing1)).to.be.an('object');
+    });
 
     it('should return an object with original property key', function() {
         expect(index.mapRegexps(testRegexpObj, listing1)).hasOwnProperty('city');
