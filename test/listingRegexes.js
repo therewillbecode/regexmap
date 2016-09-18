@@ -11,11 +11,14 @@ let listingRegexes = new listingRegexesClass
 
 var listing1 = fs.readFileSync('./test/fixtures/listing1.txt', "utf8");
 var listing2 = fs.readFileSync('./test/fixtures/listing2.txt', "utf8");
+var listing3 = fs.readFileSync('./test/fixtures/listing3.txt', "utf8");
 
 
 describe('Regex for', function() {
-    it('location should give', function() {
+    it('location should be', function() {
         // a test containing assertions
         expect(listing1.match(listingRegexes.city)[1]).to.equal('London');
+        expect(listing2.match(listingRegexes.city)[1]).to.equal('London');
+        expect(listing3.match(listingRegexes.city)[1]).to.equal('Santiago');
     });
 });
