@@ -64,14 +64,13 @@ describe('get match', function() {
     });
 
     it('should return null if no match', function() {
-        expect(index.getMatch('testString', testRegexp)).to.be('null');
+        expect(index.getMatch('testString', testRegexp)).to.be.a('null');
     });
 
     it('should throw TypeError if arg 2 is not a valid regex', function() {
-          expect(
-            function() {
-                expect(index.getMatch('testString', null)).to.be('null');
-            }).to.throw(TypeError);
+          expect(function() {
+            expect(index.getMatch('testString', null)).to.be('null');
+        }).to.throw(TypeError);
     });
 });
 
