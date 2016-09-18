@@ -1,19 +1,33 @@
 'use strict';
 
-var listingRegexes = require('../src/listingRegexes.js');
+var _ = require('lodash');
 
-let privateVariable = 10;
+var listingRegexesClass = require('../src/listingRegexes.js').listingRegexes
 
-let privateMethod = () => {
-    console.log('Inside a private method!');
-    privateVariable++;
+let listingRegexes = new listingRegexesClass
+
+// RegexObj stores list of regular expressions to extract each data point
+let getData = (ListingText, regexObj) => {
+  if (ListingText === undefined){
+    return {}
+  }
+
+  return mapRegexps
+
 }
 
-let getData = () => {
-  console.log('This is a method I want to expose!');
-}
+
+let getMatch = (regexp) => matchRegexp(myString, regexp, group)
+
+// returns object of matches for regexps
+let mapRegexps = (regexpObject, myString) => _.mapValues(regexpObject, getMatch)
+
+// matches regex and returns given group
+let matchRegexp = (myString, regexp, group) =>  regexp.exec(this.myString)[group];
+
 
 module.exports = {
-  privateMethod: privateMethod,
-  extracts: getData
+  getData: getData
+  matchRegexp: matchRegexp
+  getMatch: getMatch
 } 
