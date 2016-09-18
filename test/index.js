@@ -12,8 +12,7 @@ var listing2 = fs.readFileSync('./test/fixtures/listing2.txt', "utf8");
 
  
 describe('when given', function() {
-                         let t = 7
-
+    
     before( function() {
         // executes once, before all tests 
 
@@ -34,7 +33,7 @@ describe('when given', function() {
         
     it('an arg not of string type', function() {
         // a test containing assertions
-        expect(index.extracts).to.be.defined;
+        expect(index).to.be.defined;
   
     });
 
@@ -62,14 +61,6 @@ describe('When given a listing txt string', function() {
     it('a json should be returned', function() {
         // a test containing assertions
         expect(index.getData(listing1)).to.be.defined
-    });
-
-});
-
-describe('Regex for', function() {
-    it('location should give', function() {
-        // a test containing assertions
-        expect(listing1.match(listingRegexes)).to.equal('London');
     });
 
 });
