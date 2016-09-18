@@ -57,10 +57,19 @@ describe('when given', function() {
     });
 });
  
+
+describe('When given a listing txt string', function() {
+    it('a json should be returned', function() {
+        // a test containing assertions
+        expect(index.getData(listing1)).to.be.defined
+    });
+
+});
+
 describe('Regex for', function() {
     it('location should give', function() {
         // a test containing assertions
-        expect(listing1.match(listingRegexes.location)).to.equal.('London');
+        expect(listing1.match(listingRegexes.location)).to.equal('London');
     });
 
 });
