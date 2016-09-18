@@ -69,7 +69,7 @@ describe('When given a listing txt string', function() {
 describe('Regex for', function() {
     it('location should give', function() {
         // a test containing assertions
-        expect(listing1.match(listingRegexes.location)).to.equal('London');
+        expect(listing1.match(listingRegexes)).to.equal('London');
     });
 
 });
