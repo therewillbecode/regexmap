@@ -12,7 +12,7 @@ var listing2 = fs.readFileSync('./test/fixtures/listing2.txt', "utf8");
 
  
 describe('when given', function() {
-    
+
     before( function() {
         // executes once, before all tests 
 
@@ -41,17 +41,17 @@ describe('when given', function() {
         // a test containing assertions
         expect(
             function getData () {
-                index.extracts(6);
+                index.getData(6);
             }).to.throw(TypeError);
 
         expect(
             function getData () {
-                index.extracts({'t':1});
+                index.getData({'t':1});
             }).to.throw(TypeError);
 
         expect(
             function getData() {
-                index.extracts();
+                index.getData();
             }).to.throw(TypeError);
     });
 });
