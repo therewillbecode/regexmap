@@ -67,10 +67,11 @@ describe('get match', function() {
         expect(index.getMatch('testString', testRegexp)).to.be('null');
     });
 
-    it('should return null if arg 2 is not a valid regex', function() {
-        expect(index.getMatch('testString', 'hjh')).to.be('null');
-        expect(index.getMatch('testString', null)).to.be('null');
-        expect(index.getMatch('testString', {'f':1})).to.be('null');
+    it('should throw TypeError if arg 2 is not a valid regex', function() {
+          expect(
+            function() {
+                expect(index.getMatch('testString', null)).to.be('null');
+            }).to.throw(TypeError);
     });
 });
 
@@ -83,16 +84,12 @@ describe('mapRegexps', function() {
         'lat': /(?:"lat":)([+-]?(?:\d*\.)?\d+)/
     };
 
-    it('should return an object with original property name', function() {
-        expect(index.mapRegexps(testRegexpObj, listing1)).to.equal({
-            'city': 'London'
-        });
+    it('should return an object with original property key', function() {
+        expect(index.mapRegexps(testRegexpObj, listing1)).hasOwnProperty('city');
     });
 
     it('should return an object with matched value', function() {
-        expect(index.mapRegexps(testRegexpObj, listing1)).to.equal({
-            'city': 'London'
-        });
+        expect(index.mapRegexps(testRegexpObj, listing1)).property('city', 'London');
     });
 
     it('should match values for multiple properties of object', function() {
