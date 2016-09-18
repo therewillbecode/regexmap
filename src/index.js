@@ -1,6 +1,6 @@
 'use strict';
 
-var listingRegexes = require('./src/index.js');
+var listingRegexes = require('../src/listingRegexes.js');
 
 let privateVariable = 10;
 
@@ -12,7 +12,6 @@ let privateMethod = () => {
 let getData = () => {
   console.log('This is a method I want to expose!');
 }
-
 
 module.exports = {
   privateMethod: privateMethod,
