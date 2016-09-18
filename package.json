@@ -4,7 +4,7 @@
   "description": "Takes an airbnb listing http response body of html and retrieves data",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --reporter spec"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -18,8 +18,8 @@
   "homepage": "https://github.com/therewillbecode/air_listing_processing",
   "dependencies": {
     "chai": "^3.5.0",
+    "lodash": "^4.15.0",
     "mocha": "^3.0.2"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }
