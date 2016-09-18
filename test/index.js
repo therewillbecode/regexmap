@@ -76,7 +76,7 @@ describe('get match', function() {
 
 
 describe('mapRegexps', function() {
-    let testRegexpObj = {'city': 'testRegexp'}
+    let testRegexpObj = {'city': testRegexp}
     let testRegexpObjMultiProp = {
         'city': testRegexp, 
         'lng': /(?:"lng":)([+-]?(?:\d*\.)?\d+)/,
