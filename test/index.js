@@ -78,7 +78,7 @@ describe('get match', function() {
 describe('mapRegexps', function() {
     let testRegexpObj = {'city': 'testRegexp'}
     let testRegexpObjMultiProp = {
-        'city': 'testRegexp', 
+        'city': testRegexp, 
         'lng': /(?:"lng":)([+-]?(?:\d*\.)?\d+)/,
         'lat': /(?:"lat":)([+-]?(?:\d*\.)?\d+)/
     };
@@ -96,7 +96,7 @@ describe('mapRegexps', function() {
     });
 
     it('should match values for multiple properties of object', function() {
-        expect(index.mapRegexps(testRegexpObj, listing1)).to.equal({
+        expect(index.mapRegexps(testRegexpObjMultiProp, listing1)).to.equal({
             'city': 'London',
             'lat': 51.507351,
             'lng': -0.127758

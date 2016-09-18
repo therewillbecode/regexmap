@@ -20,7 +20,7 @@ let getData = (ListingText, regexObj) => {
 let mapRegexps = (regexpObject, myString) => _.mapValues(regexpObject, getMatch);
 
 // matches regex and returns given group
-let getMatch = (myString, regexp) =>  regexp.exec(myString);
+let getMatch = (myString, regexp) =>  myString.match(regexp);
 
 
 module.exports = {
