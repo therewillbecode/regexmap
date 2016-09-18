@@ -16,18 +16,15 @@ let getData = (ListingText, regexObj) => {
 
 }
 
-
-let getMatch = (regexp) => matchRegexp(myString, regexp, group);
-
 // returns object of matches for regexps
 let mapRegexps = (regexpObject, myString) => _.mapValues(regexpObject, getMatch);
 
 // matches regex and returns given group
-let matchRegexp = (myString, regexp, group) =>  regexp.exec(this.myString)[group];
+let getMatch = (myString, regexp) =>  regexp.exec(myString);
 
 
 module.exports = {
   getData: getData,
-  matchRegexp: matchRegexp,
+  mapRegexps: mapRegexps,
   getMatch: getMatch
 } 
