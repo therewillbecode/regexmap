@@ -11,24 +11,6 @@ var listing2 = fs.readFileSync('./test/fixtures/listing2.txt', "utf8");
 let testRegexp = /(?:","truncated_localized_city":")([\w ]+)/
  
 describe('get data', function() {
-
-    before( function() {
-        // executes once, before all tests 
-
-    });
- 
-    beforeEach( function() {
-        // executes before each test of the suite
-
-    });
- 
-    after( function() {
-        // executes once, after all tests
-    });
- 
-    afterEach( function() {
-        // executes after each test of the suites
-    });
         
     it('should return an object', function() {
         expect(index.getData('teststring')).to.be.an('object');
@@ -78,15 +60,15 @@ describe('mapRegexps', function() {
     let testRegexpObj = {'city': testRegexp}
    
     it('should return an object', function() {
-        expect(index.mapRegexps(testRegexpObj, listing1)).to.be.an('object');
+        expect(index.mapRegexps(testRegexpObj, listing1, 1)).to.be.an('object');
     });
 
     it('should return an object with original property key', function() {
-        expect(index.mapRegexps(testRegexpObj, listing1)).hasOwnProperty('city');
+        expect(index.mapRegexps(testRegexpObj, listing1, 1)).hasOwnProperty('city');
     });
 
     it('should return an object with matched value', function() {
-        expect(index.mapRegexps(testRegexpObj, listing1)).property('city', 'London');
+        expect(index.mapRegexps(testRegexpObj, listing1, 1)).property('city', 'London');
     });
 
      let testRegexpObjMultiProp = {
