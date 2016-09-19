@@ -95,10 +95,8 @@ describe('mapRegexps', function() {
     });
 
     it('should match values for multiple properties of object', function() {
-        expect(index.mapRegexps(testRegexpObjMultiProp, listing1)).to.equal({
-            'city': 'London',
-            'lat': 51.507351,
-            'lng': -0.127758
-        });
+        expect(index.mapRegexps(testRegexpObjMultiProp, listing1)).property('city', 'London');
+        expect(index.mapRegexps(testRegexpObjMultiProp, listing1)).property('lat', '51.507351');
+        expect(index.mapRegexps(testRegexpObjMultiProp, listing1)).property('lng', '-0.127758');
     });
 });
