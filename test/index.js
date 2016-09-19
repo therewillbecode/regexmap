@@ -54,21 +54,21 @@ describe('get data', function() {
 
 
 describe('get match', function() {
-    it('should be return an array', function() {
-        expect(index.getMatch(testRegexp, listing1)).to.be.an('array');
+    it('should be return a string', function() {
+        expect(index.getMatch(testRegexp, listing1, 1)).to.be.an('string');
     });
 
     it('array should contain regex match', function() {
-        expect(index.getMatch(testRegexp, listing1)).to.contain('London');
+        expect(index.getMatch(testRegexp, listing1, 1)).to.equal('London');
     });
 
     it('should return null if no match', function() {
-        expect(index.getMatch(testRegexp, 'testString')).to.be.a('null');
+        expect(index.getMatch(testRegexp, 'testString', 1)).to.be.a('null');
     });
 
-    it('should throw TypeError if arg 2 is not a valid regex', function() {
+    it('should throw TypeError if arg 1 is not a valid regex', function() {
           expect(function() {
-            expect(index.getMatch('testString', null)).to.be('null');
+            expect(index.getMatch('invalidRegex', 'testString', 0)).to.be('null');
         }).to.throw(TypeError);
     });
 });
@@ -83,7 +83,7 @@ describe('mapRegexps', function() {
     };
 
     it('should return an object', function() {
-        expect(index.getMatch(testRegexp, listing1)).to.be.an('object');
+        expect(index.mapRegexps(testRegexpObj, listing1)).to.be.an('object');
     });
 
     it('should return an object with original property key', function() {

@@ -5,24 +5,31 @@ const _ = require('lodash');
 const listingRegexesClass = require('../src/listingRegexes.js').listingRegexes;
 let listingRegexes = new listingRegexesClass;
 
+var fs = require('fs');
+
+
+var listing1 = fs.readFileSync('./test/fixtures/listing1.txt', "utf8");
+
+let p = (r) => listing1.match(r)[1];
+
+
 // RegexObj stores list of regular expressions to extract each data point
 let getData = (ListingText, regexObj) => {
   if (ListingText === undefined){
     return {}
-  }
+}
 
-  return {};
+   
+return mapRegexps(regexpObject)
 }
 
 // returns object of matches for regexps
-let mapRegexps = (regexpObject) => _.mapValues(regexpObject, (i,v,k)=>{
-console.log(i)
-console.log(k)
-(console.log(k))
-  getMatch
+let mapRegexps = (regexpObject, sourceTxt) => _.mapValues(regexpObject, (val, key, obj) => {
+   return getMatch(val, sourceTxt, 1);
 });
+
 // matches regex and returns given group
-let getMatch = (regexp, myString) =>  myString.match(regexp); 
+let getMatch = (regexp, sourceTxt, matchGroup) => sourceTxt.match(regexp)[matchGroup]; 
 
 
 module.exports = {
