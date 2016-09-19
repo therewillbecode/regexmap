@@ -20,14 +20,23 @@ let getData = (ListingText, regexObj) => {
     return mapRegexps(regexpObject)
 }
 
-// returns object of matches for regexps
-let mapRegexps = (regexpObject, sourceTxt) => _.mapValues(regexpObject, (val, key, obj) => {
-   return getMatch(val, sourceTxt, 1);
+// returns object of matches for regexps - specify optional match group
+let mapRegexps = (regexpObject, sourceTxt, matchGroup) => _.mapValues(regexpObject, (val, key, obj) => {
+   return getMatch(val, sourceTxt, matchGroup);
 });
 
 // matches regex and returns given group
-let getMatch = (regexp, sourceTxt, matchGroup) => sourceTxt.match(regexp)[matchGroup]; 
+let getMatch = (regexp, sourceTxt, matchGroup) => {
+  let match = sourceTxt.match(regexp);
 
+  if (match === null) return null 
+
+  if (_.isInteger(matchGroup) === true && _.isArray(match)){
+    return _.nth(match, matchGroup)
+  } else{
+    return match
+  }
+}
 
 module.exports = {
   getData: getData,
