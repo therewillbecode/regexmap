@@ -10,8 +10,6 @@ var fs = require('fs');
 
 var listing1 = fs.readFileSync('./test/fixtures/listing1.txt', "utf8");
 
-let p = (r) => listing1.match(r)[1];
-
 
 // RegexObj stores list of regular expressions to extract each data point
 let getData = (ListingText, regexObj) => {
@@ -19,8 +17,7 @@ let getData = (ListingText, regexObj) => {
     return {}
 }
 
-   
-return mapRegexps(regexpObject)
+    return mapRegexps(regexpObject)
 }
 
 // returns object of matches for regexps
