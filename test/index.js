@@ -36,21 +36,21 @@ describe('get data', function() {
 
 
 describe('get match', function() {
-    it('should be return a string', function() {
-        expect(index.getMatch(testRegexp, listing1, 1)).to.be.an('string');
+    it('should be return an array', function() {
+        expect(index.getMatch(testRegexp, listing1)).to.be.an('array');
     });
 
     it('array should contain regex match', function() {
-        expect(index.getMatch(testRegexp, listing1, 1)).to.equal('London');
+        expect(index.getMatch(testRegexp, listing1)).to.contain('London');
     });
 
     it('should return null if no match', function() {
-        expect(index.getMatch(testRegexp, 'testString', 1)).to.be.a('null');
+        expect(index.getMatch(testRegexp, 'testString')).to.be.a('null');
     });
 
     it('should throw TypeError if arg 1 is not a valid regex', function() {
           expect(function() {
-            expect(index.getMatch('invalidRegex', 'testString', 0)).to.be('null');
+            expect(index.getMatch('invalidRegex', 'testString')).to.be('null');
         }).to.throw(TypeError);
     });
 });
@@ -60,15 +60,15 @@ describe('mapRegexps', function() {
     let testRegexpObj = {'city': testRegexp}
 
     it('should return an object', function() {
-        expect(index.mapRegexps(testRegexpObj, listing1, 1)).to.be.an('object');
+        expect(index.mapRegexps(testRegexpObj, listing1)).to.be.an('object');
     });
 
     it('should return an object with original property key', function() {
-        expect(index.mapRegexps(testRegexpObj, listing1, 1)).hasOwnProperty('city');
+        expect(index.mapRegexps(testRegexpObj, listing1)).hasOwnProperty('city');
     });
 
     it('should return an object with matched value', function() {
-        expect(index.mapRegexps(testRegexpObj, listing1, 1)).property('city', 'London');
+        expect(index.mapRegexps(testRegexpObj, listing1)['city']).contains('London');
     });
 
      let testRegexpObjMultiProp = {
