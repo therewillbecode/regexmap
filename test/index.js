@@ -1,13 +1,13 @@
 'use strict';
 
-var fs = require('fs');
-var chai = require('chai');
-var expect = require('chai').expect;
+let fs = require('fs');
+let chai = require('chai');
+let expect = require('chai').expect;
 
-var index = require('../src/index.js');
+let index = require('../src/index.js');
 
-var listing1 = fs.readFileSync('./test/fixtures/listing1.txt', "utf8");
-var listing2 = fs.readFileSync('./test/fixtures/listing2.txt', "utf8");
+let listing1 = fs.readFileSync('./test/fixtures/listing1.txt', "utf8");
+let listing2 = fs.readFileSync('./test/fixtures/listing2.txt', "utf8");
 let testRegexp = /(?:","truncated_localized_city":")([\w ]+)/
  
 describe('get match', function() {
