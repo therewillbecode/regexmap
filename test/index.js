@@ -5,9 +5,7 @@ let chai = require('chai');
 let expect = require('chai').expect;
 
 let index = require('../src/index.js');
-
 let stringFixture = fs.readFileSync('./test/fixtures/listing1.txt', "utf8");
-let listing2 = fs.readFileSync('./test/fixtures/listing2.txt', "utf8");
 let testRegexp = /(?:","truncated_localized_city":")([\w ]+)/
  
 describe('get match', function() {
