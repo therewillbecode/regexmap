@@ -59,7 +59,6 @@ describe('mapRegexps', function() {
     let testRegexpObjNullProps = {
         'colour': /bluewhite/,
         'lng': /(?:"lng":)([+-]?(?:\d*\.)?\d+)/,
-
     };
 
     it('should map non-matched regexps as null', function() {
