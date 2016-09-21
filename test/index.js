@@ -43,7 +43,7 @@ describe('mapRegexps', function() {
     });
 
     it('should return an object with matched value', function() {
-        expect(index.mapRegexps(testRegexpObj, listing1)['city']).contains('London');
+        expect(index.mapRegexps(testRegexpObj, listing1)['city']).to.contain('London');
     });
 
      let testRegexpObjMultiProp = {
@@ -53,17 +53,20 @@ describe('mapRegexps', function() {
     };
 
     it('should match values for multiple properties of object', function() {
-        expect(index.mapRegexps(testRegexpObjMultiProp, listing1)['city']).contains('London');
-        expect(index.mapRegexps(testRegexpObjMultiProp, listing1)['lat']).contains('51.507351');
-        expect(index.mapRegexps(testRegexpObjMultiProp, listing1)['lng']).contains('-0.127758');
+        expect(index.mapRegexps(testRegexpObjMultiProp, listing1)['city']).to.contain('London');
+        expect(index.mapRegexps(testRegexpObjMultiProp, listing1)['lat']).to.contain('51.507351');
+        expect(index.mapRegexps(testRegexpObjMultiProp, listing1)['lng']).to.contain('-0.127758');
     });
 
     let testRegexpObjNullProps = {
-        'colour': /bluewhite/
+        'colour': /bluewhite/,
+        'lng': /(?:"lng":)([+-]?(?:\d*\.)?\d+)/,
+
     };
 
     it('should map non-matched regexps as null', function() {
-        expect(index.mapRegexps(testRegexpObjMultiProp, listing1)['colour']).contains('null');
+        expect(index.mapRegexps(testRegexpObjNullProps, listing1)['colour']).to.be.null;
+        expect(index.mapRegexps(testRegexpObjNullProps, listing1)['lng']).to.contain('-0.127758');
     });
 
 
