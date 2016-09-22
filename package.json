@@ -18,9 +18,10 @@
   },
   "homepage": "https://github.com/therewillbecode/air_listing_processing",
   "dependencies": {
-    "chai": "^3.5.0",
     "lodash": "^4.15.0",
-    "mocha": "^3.0.2"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "mocha": "^3.0.2",
+    "chai": "^3.5.0",
+  }
 }
