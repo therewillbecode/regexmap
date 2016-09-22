@@ -17,7 +17,7 @@ function mapRegexps(regexpDict, sourceTxt) {
 
 // obj should be in format { 'name': /alexa/, 'age': \d{2} } 
 function validateRegexObj(obj) {
-  let invalidObjectErr = "expects object where property values are regexps i.e { 'name': /alexa/ }"
+  let invalidObjectErr = "expects object where property values are regexps i.e { 'name': /alexa/ }";
   
   if(_.isObject(obj) ===false){
     throw TypeError(invalidObjectErr);
