@@ -2,16 +2,7 @@
 
 const _ = require('lodash');
 
-// checks obj is object with regexp values i.e { 'name': /alexa/, 'age': \d{2} } 
- let validateRegexObj = (obj) => {
-  	_.forOwn(obj, (value, key) => {
-  		if(_.isRegExp(value) === false) {
-  			    throw TypeError("regexpDict must be dict like object where prop value is a regexp i.e { 'name': /alexa/ }");
-  		} 
-  	});
-};
-
- /**
+/**
    * Maps dict like object of regular expressions to their match results for a given string.
    *
    * @private
@@ -25,7 +16,16 @@ let mapRegexps = (regexpDict, sourceTxt) => _.mapValues(regexpDict, (val, key, o
    return getMatch(val, sourceTxt);
 });
 
-// matches regex and returns given group
+// checks obj is object with regexp values i.e { 'name': /alexa/, 'age': \d{2} } 
+ let validateRegexObj = (obj) => {
+  	_.forOwn(obj, (value, key) => {
+  		if(_.isRegExp(value) === false) {
+  			    throw TypeError("regexpDict must be dict like object where prop value is a regexp i.e { 'name': /alexa/ }");
+  		} 
+  	});
+};
+
+// matches regex
 let getMatch = (regexp, sourceTxt) => {
   let match = sourceTxt.match(regexp);
 
