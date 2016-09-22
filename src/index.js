@@ -15,7 +15,7 @@ function mapRegexps(regexpDict, sourceTxt) {
   _.mapValues(regexpDict, (val, key, obj) => getMatch(val, sourceTxt));
 };
 
-// checks obj is object with regexp values i.e { 'name': /alexa/, 'age': \d{2} } 
+// obj should be in format { 'name': /alexa/, 'age': \d{2} } 
 function validateRegexObj(obj) {
   let invalidObjectErr = "regexpDict must be dict like object where prop value is a regexp i.e { 'name': /alexa/ }"
   
