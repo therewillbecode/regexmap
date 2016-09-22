@@ -1,5 +1,5 @@
 {
-  "name": "@therewillbecode/air_listing_processing",
+  "name": "@therewillbecode/regexmap",
   "version": "1.0.0",
   "description": "Takes an airbnb listing http response body of html and retrieves data",
   "main": "index.js",
@@ -9,14 +9,14 @@
   "keywords": ["regular", "expressions", "regex", "regexp", "map", "mapping" ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/therewillbecode/air_listing_processing"
+    "url": "https://github.com/therewillbecode/regexmap"
   },
   "author": "therewillbecode <tomw08@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/therewillbecode/regexpmap/issues"
   },
-  "homepage": "https://github.com/therewillbecode/air_listing_processing",
+  "homepage": "https://github.com/therewillbecode/regexmap",
   "dependencies": {
     "lodash": "^4.15.0",
   },
