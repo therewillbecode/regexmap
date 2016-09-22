@@ -34,7 +34,7 @@ function validateRegexObj(obj) {
 function getMatch(regexp, sourceTxt) {
   let match = sourceTxt.match(regexp);
 
-  return match
+  return match;
 };
 
 module.exports = {
