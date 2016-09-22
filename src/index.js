@@ -11,8 +11,8 @@ const _ = require('lodash');
  * @returns {Object} Returns the original object where property values are the result of the match.
  */
 function mapRegexps(regexpDict, sourceTxt) {
+    validateRegexObj(regexpDict)
     _.mapValues(regexpDict, (val, key, obj) => {
-        validateRegexObj(regexpDict)
 
         return getMatch(val, sourceTxt);
     })
@@ -20,11 +20,17 @@ function mapRegexps(regexpDict, sourceTxt) {
 
 // checks obj is object with regexp values i.e { 'name': /alexa/, 'age': \d{2} } 
 function validateRegexObj(obj) {
-    _.forOwn(obj, (value, key) => {
-        if (_.isRegExp(value) === false) {
-            throw TypeError("regexpDict must be dict like object where prop value is a regexp i.e { 'name': /alexa/ }");
-        }
-    });
+  let invalidObjectErr = "regexpDict must be dict like object where prop value is a regexp i.e { 'name': /alexa/ }"
+  
+  if(_.isObject(obj) ===false){
+    throw TypeError(invalidObjectErr);
+  }
+
+  _.forOwn(obj, (value, key) => {
+    if (_.isRegExp(value) === false) {
+      throw TypeError(invalidObjectErr);
+    }
+  });
 };
 
 // matches regex
