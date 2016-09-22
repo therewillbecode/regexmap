@@ -6,7 +6,7 @@ const _ = require('lodash');
  * Maps dict like object of regular expressions to their match results for a given string.
  *
  * @private
- * @param {Object} Contains regex name and a regexp object i.e { 'name': /alexa/, 'age': \d{2} } to iterate over.
+ * @param {Object} Contains regex name and a regexp object i.e { 'name': /alexa/, 'age': /\d{2}/ } to iterate over.
  * @param {String} The string for which to match the regexps in each property of object.
  * @returns {Object} Returns the original object where property values are the result of the match.
  */

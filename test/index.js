@@ -11,37 +11,33 @@ let testRegexp = /(?:","truncated_localized_city":")([\w ]+)/
 
 describe('validateRegexObj', function() {
     it('should throw TypeError if arg 1 is not an obj ', function() {
-          expect(function() {
-            expect(index.validateRegexObj(undefined)})
-              .to.throw(TypeError);
+        expect(function(){
+        index.validateRegexObj(undefined)
+    }).to.throw(TypeError);
 
-              expect(function() {
-            expect(index.validateRegexObj(6)).to.be('null')})
-              .to.throw(TypeError);
+        expect(function(){
+        index.validateRegexObj(6)
+    }).to.throw(TypeError);
 
-              expect(function() {
-            expect(index.validateRegexObj('name').to.be('null')})
-              .to.throw(TypeError);
+        expect(function(){
+        index.validateRegexObj('name')
+    }).to.throw(TypeError);
     });
 
     it('should throw TypeError if obj does not have regex property values', function() {
-          expect(function() {
-            expect(index.validateRegexObj({ 'name': 6 }).to.be('null')})
-              .to.throw(TypeError);
-    });
+          expect(function(){
+        index.validateRegexObj({'name': 6})
+    }).to.throw(TypeError);
+    }); 
 
-    let validObj = { 'name': /alexa/, 'age': \d{2} };
+    let validObj = { 'name': /alexa/, 'age': /\d{2}/ };
 
     it('should not throw TypeError if obj has valid regex property values', function() {
-          expect(function() {
-            expect(index.validateRegexObj(validateRegexObj).to.be('null')})
-              .to.not.throw(TypeError);
+        expect(function(){
+        index.validateRegexObj(validObj)
+    }).to.not.throw(TypeError);
     });
- 
-    
 });
-
-
 
  
 describe('get match', function() {
@@ -56,8 +52,6 @@ describe('get match', function() {
     it('should return null if no match', function() {
         expect(index.getMatch(testRegexp, 'testString')).to.be.a('null');
     });
-
-    
 });
 
 
