@@ -6,6 +6,7 @@
   "scripts": {
     "test": "mocha"
   },
+  "keywords": ["regular", "expressions", "regex", "regexp", "map", "mapping" ],
   "repository": {
     "type": "git",
     "url": "https://github.com/therewillbecode/air_listing_processing"
