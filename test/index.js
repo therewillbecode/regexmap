@@ -7,6 +7,42 @@ let expect = require('chai').expect;
 let index = require('../src/index.js');
 let stringFixture = fs.readFileSync('./test/fixtures/listing1.txt', "utf8");
 let testRegexp = /(?:","truncated_localized_city":")([\w ]+)/
+
+
+describe('validateRegexObj', function() {
+    it('should throw TypeError if arg 1 is not an obj ', function() {
+          expect(function() {
+            expect(index.validateRegexObj(undefined)})
+              .to.throw(TypeError);
+
+              expect(function() {
+            expect(index.validateRegexObj(6)).to.be('null')})
+              .to.throw(TypeError);
+
+              expect(function() {
+            expect(index.validateRegexObj('name').to.be('null')})
+              .to.throw(TypeError);
+    });
+
+    it('should throw TypeError if obj does not have regex property values', function() {
+          expect(function() {
+            expect(index.validateRegexObj({ 'name': 6 }).to.be('null')})
+              .to.throw(TypeError);
+    });
+
+    let validObj = { 'name': /alexa/, 'age': \d{2} };
+
+    it('should not throw TypeError if obj has valid regex property values', function() {
+          expect(function() {
+            expect(index.validateRegexObj(validateRegexObj).to.be('null')})
+              .to.not.throw(TypeError);
+    });
+ 
+    
+});
+
+
+
  
 describe('get match', function() {
     it('should be return an array', function() {
@@ -21,11 +57,7 @@ describe('get match', function() {
         expect(index.getMatch(testRegexp, 'testString')).to.be.a('null');
     });
 
-    it('should throw TypeError if arg 1 is not a valid regex', function() {
-          expect(function() {
-            expect(index.getMatch('invalidRegex', 'testString')).to.be('null')})
-              .to.throw(TypeError);
-    });
+    
 });
 
 
