@@ -30,7 +30,6 @@ function validateRegexObj(obj) {
   });
 };
 
-// matches regex
 function getMatch(regexp, sourceTxt) {
   let match = sourceTxt.match(regexp);
 
