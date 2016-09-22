@@ -11,11 +11,8 @@ const _ = require('lodash');
  * @returns {Object} Returns the original object where property values are the result of the match.
  */
 function mapRegexps(regexpDict, sourceTxt) {
-    validateRegexObj(regexpDict)
-    _.mapValues(regexpDict, (val, key, obj) => {
-
-        return getMatch(val, sourceTxt);
-    })
+  validateRegexObj(regexpDict);
+  _.mapValues(regexpDict, (val, key, obj) => getMatch(val, sourceTxt));
 };
 
 // checks obj is object with regexp values i.e { 'name': /alexa/, 'age': \d{2} } 
