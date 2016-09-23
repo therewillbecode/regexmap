@@ -1,7 +1,7 @@
 {
   "name": "@therewillbecode/regexmap",
-  "version": "1.0.0",
-  "description": "Takes an airbnb listing http response body of html and retrieves data",
+  "version": "1.0.1",
+  "description": "Map regex key value pairs to their matches",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
