@@ -20,7 +20,7 @@ function mapRegexps(regexpDict, sourceTxt) {
 function validateRegexObj(obj) {
   let invalidObjectErr = "expects object where property values are regexps i.e { 'name': /alexa/ }";
   
-  if(_.isObject(obj) ===false){
+  if (_.isObject(obj) ===false){
     throw TypeError(invalidObjectErr);
   }
 
