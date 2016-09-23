@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 let fs = require("fs");
 let chai = require("chai");
@@ -59,15 +59,15 @@ describe('mapRegexps', function() {
     let testRegexpObj = {'city': testRegexp}
 
     it('should return an object', function() {
-        expect(index.mapRegexps(testRegexpObj, stringFixture)).to.be.an('object');
+        expect(index.map(testRegexpObj, stringFixture)).to.be.an('object');
     });
 
     it('should return an object with original property key', function() {
-        expect(index.mapRegexps(testRegexpObj, stringFixture)).hasOwnProperty('city');
+        expect(index.map(testRegexpObj, stringFixture)).hasOwnProperty('city');
     });
 
     it('should return an object with matched value', function() {
-        expect(index.mapRegexps(testRegexpObj, stringFixture)['city']).to.contain('London');
+        expect(index.map(testRegexpObj, stringFixture)['city']).to.contain('London');
     });
 
      let testRegexpObjMultiProp = {
@@ -77,9 +77,9 @@ describe('mapRegexps', function() {
     };
 
     it('should match values for multiple properties of object', function() {
-        expect(index.mapRegexps(testRegexpObjMultiProp, stringFixture)['city']).to.contain('London');
-        expect(index.mapRegexps(testRegexpObjMultiProp, stringFixture)['lat']).to.contain('51.507351');
-        expect(index.mapRegexps(testRegexpObjMultiProp, stringFixture)['lng']).to.contain('-0.127758');
+        expect(index.map(testRegexpObjMultiProp, stringFixture)['city']).to.contain('London');
+        expect(index.map(testRegexpObjMultiProp, stringFixture)['lat']).to.contain('51.507351');
+        expect(index.map(testRegexpObjMultiProp, stringFixture)['lng']).to.contain('-0.127758');
     });
 
     let testRegexpObjNullProps = {
@@ -88,8 +88,8 @@ describe('mapRegexps', function() {
     };
 
     it('should map non-matched regexps as null', function() {
-        expect(index.mapRegexps(testRegexpObjNullProps, stringFixture)['colour']).to.be.null;
-        expect(index.mapRegexps(testRegexpObjNullProps, stringFixture)['lng']).to.contain('-0.127758');
+        expect(index.map(testRegexpObjNullProps, stringFixture)['colour']).to.be.null;
+        expect(index.map(testRegexpObjNullProps, stringFixture)['lng']).to.contain('-0.127758');
     });
 });
 

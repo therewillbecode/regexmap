@@ -38,7 +38,7 @@ function getMatch(regexp, sourceTxt) {
 };
 
 module.exports = {
-  mapRegexps: mapRegexps,
+  map: mapRegexps,
   getMatch: getMatch,
   validateRegexObj: validateRegexObj
 };
