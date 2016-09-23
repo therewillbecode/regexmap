@@ -12,7 +12,8 @@ const _ = require('lodash');
  */
 function mapRegexps(regexpDict, sourceTxt) {
   validateRegexObj(regexpDict);
-  _.mapValues(regexpDict, (val, key, obj) => getMatch(val, sourceTxt));
+  
+  return _.mapValues(regexpDict, (val, key, obj) => getMatch(val, sourceTxt));
 };
 
 // obj should be in format { 'name': /alexa/, 'age': \d{2} } 
