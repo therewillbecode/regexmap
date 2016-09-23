@@ -8,9 +8,12 @@ Map regex key value pairs to their matches
 $ npm i --save regexmap
 ```
 
-const mapregex = require("mapregex").map;
+Example
 
 ```
+const mapregex = require("mapregex").map;
+
+
 let regexObject = {
                     "name": /alexa/, 
                     "age": /\d{2}/ 
