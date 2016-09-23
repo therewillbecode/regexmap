@@ -1,11 +1,11 @@
 'use strict';
 
-let fs = require('fs');
-let chai = require('chai');
-let expect = require('chai').expect;
+let fs = require("fs");
+let chai = require("chai");
+let expect = require("chai").expect;
 
-let index = require('../src/index.js');
-let stringFixture = fs.readFileSync('./test/fixtures/listing1.txt', "utf8");
+let index = require("../src/index.js");
+let stringFixture = fs.readFileSync("./test/fixtures/listing1.txt", "utf8");
 let testRegexp = /(?:","truncated_localized_city":")([\w ]+)/
 
 
