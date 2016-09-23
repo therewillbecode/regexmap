@@ -13,7 +13,6 @@ $ npm i --save regexmap
 ```
 const mapregex = require("mapregex").map;
 
-
 let regexObject = {
                     "name": /alexa/, 
                     "age": /\d{2}/ 
