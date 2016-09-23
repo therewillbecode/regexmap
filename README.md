@@ -18,7 +18,7 @@ let regexObject = {
                     "age": /\d{2}/ 
                    };
 
-let stringToMatch = "My name is Alexa and I am 18.";
+let stringToMatch = "My name is alexa and I am 18.";
 
 regexmap.map(regexObject, stringToMatch);
 //
