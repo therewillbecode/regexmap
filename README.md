@@ -28,3 +28,6 @@ regexmap.map(regexObject, stringToMatch);
 //          };
 //
 ```
+
+
+### Contributions are welcome
