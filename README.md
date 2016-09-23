@@ -1,4 +1,4 @@
-# regexmap v1.0.1
+# regexmap v1.0.2
 
 Map regex key value pairs to their matches
 

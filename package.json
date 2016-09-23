@@ -1,6 +1,6 @@
 {
   "name": "@therewillbecode/regexmap",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Map regex key value pairs to their matches",
   "main": "index.js",
   "scripts": {
