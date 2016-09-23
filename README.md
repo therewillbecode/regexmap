@@ -1,4 +1,4 @@
-# regexmap # lodash v1.0.0
+# regexmap v1.0.0
 
 Map regex key value pairs to their matches
 
@@ -8,7 +8,7 @@ Map regex key value pairs to their matches
 $ npm i --save regexmap
 ```
 
-Example
+## Example
 
 ```
 const mapregex = require("mapregex").map;
