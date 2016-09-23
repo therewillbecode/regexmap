@@ -12,21 +12,21 @@ let testRegexp = /(?:","truncated_localized_city":")([\w ]+)/
 describe('validateRegexObj', function() {
     it('should throw TypeError if arg 1 is not an obj ', function() {
         expect(function(){
-        index.validateRegexObj(undefined)
+        index.validateRegexObj(undefined);
     }).to.throw(TypeError);
 
         expect(function(){
-        index.validateRegexObj(6)
+        index.validateRegexObj(6);
     }).to.throw(TypeError);
 
         expect(function(){
-        index.validateRegexObj('name')
+        index.validateRegexObj('name');
     }).to.throw(TypeError);
     });
 
     it('should throw TypeError if obj does not have regex property values', function() {
           expect(function(){
-        index.validateRegexObj({'name': 6})
+        index.validateRegexObj({'name': 6});
     }).to.throw(TypeError);
     }); 
 
@@ -34,14 +34,14 @@ describe('validateRegexObj', function() {
 
     it('should not throw TypeError if obj has valid regex property values', function() {
         expect(function(){
-        index.validateRegexObj(validObj)
+        index.validateRegexObj(validObj);
     }).to.not.throw(TypeError);
     });
 });
 
- 
+
 describe('get match', function() {
-    it('should be return an array', function() {
+    it('should return an array', function() {
         expect(index.getMatch(testRegexp, stringFixture)).to.be.an('array');
     });
 
