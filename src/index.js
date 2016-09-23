@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-const _ = require('lodash');
+const _ = require("lodash");
 
 /**
  * Maps dict like object of regular expressions to their match results for a given string.
