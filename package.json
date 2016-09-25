@@ -1,6 +1,6 @@
 {
   "name": "regexmap",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Map regex key value pairs to their matches",
   "main": "index.js",
   "scripts": {
