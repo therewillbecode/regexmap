@@ -5,13 +5,13 @@ Map regex key value pairs to their matches
 ## :cloud: Installation
 
 ```
-$ npm i --save regexmap
+$ npm install --save regexmap
 ```
 
 ## Example
 
 ```
-const mapregex = require("mapregex").map;
+const regexmap = require("regexmap").map;
 
 let regexObject = {
                     "name": /alexa/, 
