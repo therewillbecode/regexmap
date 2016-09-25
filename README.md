@@ -20,14 +20,17 @@ let regexObject = {
 
 let stringToMatch = "My name is alexa and I am 18.";
 
-regexmap.map(regexObject, stringToMatch);
+regexmap(regexObject, stringToMatch);
 //
-// result = {
-//            "name": "alexa", 
-//            "age": "18" 
-//          };
-//
-```
+// {
+//   name: [ 'alexa', 
+//           index: 11, 
+//           input: 'My name is alexa and I am 18.' ],
+// 
+//    age: [  '18',
+//           index: 26,
+//           input: 'My name is alexa and I am 18.' ]
+// }
 
 
 ### Contributions are welcome
