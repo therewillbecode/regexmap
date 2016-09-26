@@ -4,7 +4,8 @@
   "description": "Map regex key value pairs to their matches",
   "main": "src/index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "test-cov": "istanbul cover _mocha"
   },
   "keywords": [
     "regular",
@@ -29,7 +30,8 @@
     "rewire": "^2.5.2"
   },
   "devDependencies": {
-    "mocha": "^3.0.2",
-    "chai": "^3.5.0"
+    "chai": "^3.5.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.0.2"
   }
 }
