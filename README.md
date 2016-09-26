@@ -11,7 +11,7 @@ $ npm install --save regexmap
 ## Example
 
 ```
-const regexmap = require("regexmap").map;
+const regexmap = require("regexmap");
 
 let regexObject = {
                     "name": /alexa/, 
