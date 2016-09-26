@@ -37,6 +37,6 @@ function getMatch(regexp, sourceTxt) {
   return match;
 };
 
-module.exports = function () {
-  return mapRegexps;
+module.exports = function (regexpDict, sourceTxt) {
+  return mapRegexps(regexpDict, sourceTxt);
 };
