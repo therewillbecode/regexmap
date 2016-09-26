@@ -1,6 +1,6 @@
 # regexmap v1.1.0
 
-[![Coverage Status](https://coveralls.io/repos/therewillbecode/regexmap/badge.svg?branch=master)](https://coveralls.io/r/therewillbecode/regexmap/?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/therewillbecode/regexmap/badge.svg?branch=master)](https://coveralls.io/github/therewillbecode/regexmap?branch=master)
 
 Map regex key value pairs to their matches
 
