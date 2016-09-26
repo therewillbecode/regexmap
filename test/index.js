@@ -3,8 +3,16 @@
 let fs = require("fs");
 let chai = require("chai");
 let expect = require("chai").expect;
+let rewire = require("rewire");
+let index = rewire("../src/index.js");
 
-let index = require("../src/index.js");
+// import public functions from index.js
+let mapRegexps = require("../src/index.js");
+
+// import private functions from index.js
+let validateRegexObj = index.__get__("validateRegexObj");
+let getMatch = index.__get__("getMatch"); 
+
 let stringFixture = fs.readFileSync("./test/fixtures/listing1.txt", "utf8");
 let testRegexp = /(?:","truncated_localized_city":")([\w ]+)/
 
@@ -12,21 +20,21 @@ let testRegexp = /(?:","truncated_localized_city":")([\w ]+)/
 describe('validateRegexObj', function() {
     it('should throw TypeError if arg 1 is not an obj ', function() {
         expect(function(){
-        index.validateRegexObj(undefined);
+        validateRegexObj(undefined);
     }).to.throw(TypeError);
 
         expect(function(){
-        index.validateRegexObj(6);
+        validateRegexObj(6);
     }).to.throw(TypeError);
 
         expect(function(){
-        index.validateRegexObj('name');
+        validateRegexObj('name');
     }).to.throw(TypeError);
     });
 
     it('should throw TypeError if obj does not have regex property values', function() {
           expect(function(){
-        index.validateRegexObj({'name': 6});
+        validateRegexObj({'name': 6});
     }).to.throw(TypeError);
     }); 
 
@@ -34,7 +42,7 @@ describe('validateRegexObj', function() {
 
     it('should not throw TypeError if obj has valid regex property values', function() {
         expect(function(){
-        index.validateRegexObj(validObj);
+        validateRegexObj(validObj);
     }).to.not.throw(TypeError);
     });
 });
@@ -42,15 +50,15 @@ describe('validateRegexObj', function() {
 
 describe('get match', function() {
     it('should return an array', function() {
-        expect(index.getMatch(testRegexp, stringFixture)).to.be.an('array');
+        expect(getMatch(testRegexp, stringFixture)).to.be.an('array');
     });
 
     it('array should contain regex match', function() {
-        expect(index.getMatch(testRegexp, stringFixture)).to.contain('London');
+        expect(getMatch(testRegexp, stringFixture)).to.contain('London');
     });
 
     it('should return null if no match', function() {
-        expect(index.getMatch(testRegexp, 'testString')).to.be.a('null');
+        expect(getMatch(testRegexp, 'testString')).to.be.a('null');
     });
 });
 
@@ -59,15 +67,15 @@ describe('mapRegexps', function() {
     let testRegexpObj = {'city': testRegexp}
 
     it('should return an object', function() {
-        expect(index.map(testRegexpObj, stringFixture)).to.be.an('object');
+        expect(mapRegexps(testRegexpObj, stringFixture)).to.be.an('object');
     });
 
     it('should return an object with original property key', function() {
-        expect(index.map(testRegexpObj, stringFixture)).hasOwnProperty('city');
+        expect(mapRegexps(testRegexpObj, stringFixture)).hasOwnProperty('city');
     });
 
     it('should return an object with matched value', function() {
-        expect(index.map(testRegexpObj, stringFixture)['city']).to.contain('London');
+        expect(mapRegexps(testRegexpObj, stringFixture)['city']).to.contain('London');
     });
 
      let testRegexpObjMultiProp = {
@@ -77,9 +85,9 @@ describe('mapRegexps', function() {
     };
 
     it('should match values for multiple properties of object', function() {
-        expect(index.map(testRegexpObjMultiProp, stringFixture)['city']).to.contain('London');
-        expect(index.map(testRegexpObjMultiProp, stringFixture)['lat']).to.contain('51.507351');
-        expect(index.map(testRegexpObjMultiProp, stringFixture)['lng']).to.contain('-0.127758');
+        expect(mapRegexps(testRegexpObjMultiProp, stringFixture)['city']).to.contain('London');
+        expect(mapRegexps(testRegexpObjMultiProp, stringFixture)['lat']).to.contain('51.507351');
+        expect(mapRegexps(testRegexpObjMultiProp, stringFixture)['lng']).to.contain('-0.127758');
     });
 
     let testRegexpObjNullProps = {
@@ -88,8 +96,8 @@ describe('mapRegexps', function() {
     };
 
     it('should map non-matched regexps as null', function() {
-        expect(index.map(testRegexpObjNullProps, stringFixture)['colour']).to.be.null;
-        expect(index.map(testRegexpObjNullProps, stringFixture)['lng']).to.contain('-0.127758');
+        expect(mapRegexps(testRegexpObjNullProps, stringFixture)['colour']).to.be.null;
+        expect(mapRegexps(testRegexpObjNullProps, stringFixture)['lng']).to.contain('-0.127758');
     });
 });
 
