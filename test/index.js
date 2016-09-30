@@ -63,6 +63,62 @@ describe('get match', function() {
 });
 
 
+describe('replace', function() {
+    it('should return an object', function() {
+
+    });
+
+    it('object should contain regexp', function() {
+   
+    });
+
+     it('object should contain replaced string', function() {
+   
+    });
+
+    it('object should contain original string', function() {
+ 
+    });
+
+
+    it('return string should equal original source string if no replacements for given string is zero', function() {
+
+    });
+
+});
+
+
+describe('replace counts matches', function() {
+    it('match count for given property', function() {
+        .should.equal(0);
+    });
+
+    it('match count for given property', function() {
+        .should.equal(2);
+
+    });
+
+
+    it('should calculate correct number of matches for multiple regexps', function() {
+        property.should.equal(2);
+        property.should.equal(3);
+        property.should.equal(0);
+
+    });
+
+    
+
+    it('return string should equal original source string if no replacements for given string is zero', function() {
+        expect(getMatch(testRegexp, 'testString')).to.be.a('null');
+    });
+
+    it('should return a property count for number of replacements for regexp', function() {
+        expect(getMatch(testRegexp, 'testString')).to.be.a('null');
+    });
+});
+
+
+
 describe('mapRegexps', function() {
     let testRegexpObj = {'city': testRegexp}
 
