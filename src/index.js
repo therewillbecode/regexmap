@@ -12,7 +12,7 @@ const _ = require("lodash");
  */
 function mapRegexps(regexpDict, sourceTxt) {
   validateRegexObj(regexpDict);
-  
+
   return _.mapValues(regexpDict, (val, key, obj) => getMatch(val, sourceTxt));
 };
 
@@ -32,6 +32,11 @@ function validateRegexObj(obj) {
 };
 
 function getMatch(regexp, sourceTxt) {
+if (_.isArray(sourceTxt) === true){
+    return sourceTxt.map((val) => val.match(regexp))
+  }
+
+
   let match = sourceTxt.match(regexp);
 
   return match;
@@ -40,3 +45,13 @@ function getMatch(regexp, sourceTxt) {
 module.exports = function (regexpDict, sourceTxt) {
   return mapRegexps(regexpDict, sourceTxt);
 };
+
+
+let regexObject = {
+                    "name": /alexa/, 
+                    "age": /\d{2}/ 
+                   };
+ 
+let stringToMatch = ["My name is alexa and I am 18.", "My name is alexa and I am 22."];
+ 
+console.log(module.exports(regexObject, stringToMatch));
