@@ -17,6 +17,18 @@ let stringFixture = fs.readFileSync("./test/fixtures/listing1.txt", "utf8");
 let testRegexp = /(?:","truncated_localized_city":")([\w ]+)/
 
 
+let testRegexpObjMultiProp = {
+    'city': testRegexp, 
+    'lng': /(?:"lng":)([+-]?(?:\d*\.)?\d+)/,
+    'lat': /(?:"lat":)([+-]?(?:\d*\.)?\d+)/
+};
+
+  let testRegexpObjNullProps = {
+        'colour': /bluewhite/,
+        'lng': /(?:"lng":)([+-]?(?:\d*\.)?\d+)/,
+    };
+
+
 describe('validateRegexObj', function() {
     it('should throw TypeError if arg 1 is not an obj ', function() {
         expect(function(){
@@ -53,6 +65,7 @@ describe('get match', function() {
         expect(getMatch(testRegexp, stringFixture)).to.be.an('array');
     });
 
+
     it('array should contain regex match', function() {
         expect(getMatch(testRegexp, stringFixture)).to.contain('London');
     });
@@ -60,10 +73,27 @@ describe('get match', function() {
     it('should return null if no match', function() {
         expect(getMatch(testRegexp, 'testString')).to.be.a('null');
     });
+
+ it('return array when sourcetxt is an empty array ', function() {
+        expect(getMatch(testRegexp, [] )).to.to.be.an('array');
+    });
+
+ it('return array when sourcetxt is an array length 2 ', function() {
+        expect(getMatch(/g/, ['g', 'g'] )).should.have.length(2);
+    });
+
+
+
+ it('return array of length 4 sourcetxt is an array length 4 ', function() {
+        expect(getMatch(/d/, ['d', 'd', 'd', 'd'] )).should.have.length(4);
+    });
+
+
 });
 
 
 describe('mapRegexps', function() {
+    
     let testRegexpObj = {'city': testRegexp}
 
     it('should return an object', function() {
@@ -78,11 +108,11 @@ describe('mapRegexps', function() {
         expect(mapRegexps(testRegexpObj, stringFixture)['city']).to.contain('London');
     });
 
-     let testRegexpObjMultiProp = {
-        'city': testRegexp, 
-        'lng': /(?:"lng":)([+-]?(?:\d*\.)?\d+)/,
-        'lat': /(?:"lat":)([+-]?(?:\d*\.)?\d+)/
-    };
+ 
+describe('should handle single txt source', function() {
+    let arrayStr = [' ', ' '];
+    let regexp1 = /bluewhite/;
+
 
     it('should match values for multiple properties of object', function() {
         expect(mapRegexps(testRegexpObjMultiProp, stringFixture)['city']).to.contain('London');
@@ -90,14 +120,37 @@ describe('mapRegexps', function() {
         expect(mapRegexps(testRegexpObjMultiProp, stringFixture)['lng']).to.contain('-0.127758');
     });
 
-    let testRegexpObjNullProps = {
-        'colour': /bluewhite/,
-        'lng': /(?:"lng":)([+-]?(?:\d*\.)?\d+)/,
-    };
 
     it('should map non-matched regexps as null', function() {
         expect(mapRegexps(testRegexpObjNullProps, stringFixture)['colour']).to.be.null;
         expect(mapRegexps(testRegexpObjNullProps, stringFixture)['lng']).to.contain('-0.127758');
+    });
+});
+    describe('when sourceTxt arg is an array', function() { 
+        let arrayStr = [' ', ' '];
+
+        it('and is ', function() {
+            expect(mapRegexps(testRegexpObjMultiProp, stringFixture)['colour']).should.have.length(1);
+            expect(mapRegexps(testRegexpObjMultiProp, stringFixture)['lng']).should.have.length(1);
+            expect(mapRegexps(testRegexpObjMultiProp, stringFixture)['lat']).should.have.length(1);
+        });
+
+     
+        it('array length for each nested property', function() {
+            expect(mapRegexps(testRegexpObjMultiProp, stringFixture)['colour']).should.have.length(2);
+            expect(mapRegexps(testRegexpObjMultiProp, stringFixture)['lng']).should.have.length(2);
+            expect(mapRegexps(testRegexpObjMultiProp, stringFixture)['lat']).should.have.length(2);
+        });
+
+        let arrayStr2 = ['b ', 'b ', ' b', ' b'];
+
+        it('array length for each nested property', function() {
+            expect(mapRegexps(testRegexpObjMultiProp, stringFixture)['colour']).should.have.length(4);
+            expect(mapRegexps(testRegexpObjMultiProp, stringFixture)['lng']).should.have.length(4);
+            expect(mapRegexps(testRegexpObjMultiProp, stringFixture)['lat']).should.have.length(4);
+        });
+
+
     });
 });
 
