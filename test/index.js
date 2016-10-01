@@ -79,13 +79,13 @@ describe('get match', function() {
     });
 
  it('return array when sourcetxt is an array length 2 ', function() {
-        expect(getMatch(/g/, ['g', 'g'] )).should.have.length(2);
+        expect(getMatch(/g/, ['g', 'g'] )).to.have.length.of(2);
     });
 
 
 
  it('return array of length 4 sourcetxt is an array length 4 ', function() {
-        expect(getMatch(/d/, ['d', 'd', 'd', 'd'] )).should.have.length(4);
+        expect(getMatch(/d/, ['d', 'd', 'd', 'd'] )).to.have.length.of(4);
     });
 
 
@@ -130,24 +130,25 @@ describe('should handle single txt source', function() {
         let arrayStr = [' ', ' '];
 
         it('and is ', function() {
-            expect(mapRegexps(testRegexpObjMultiProp, stringFixture)['colour']).should.have.length(1);
-            expect(mapRegexps(testRegexpObjMultiProp, stringFixture)['lng']).should.have.length(1);
-            expect(mapRegexps(testRegexpObjMultiProp, stringFixture)['lat']).should.have.length(1);
+          // console.log( mapRegexps(testRegexpObjMultiProp, stringFixture))
+            expect(mapRegexps(testRegexpObjMultiProp, ['j'])['city']).to.have.length.of(1);
+            expect(mapRegexps(testRegexpObjMultiProp, ['j'])['lng']).to.have.length.of(1);
+            expect(mapRegexps(testRegexpObjMultiProp, ['j'])['lat']).to.have.length.of(1);
         });
 
      
         it('array length for each nested property', function() {
-            expect(mapRegexps(testRegexpObjMultiProp, stringFixture)['colour']).should.have.length(2);
-            expect(mapRegexps(testRegexpObjMultiProp, stringFixture)['lng']).should.have.length(2);
-            expect(mapRegexps(testRegexpObjMultiProp, stringFixture)['lat']).should.have.length(2);
+            expect(mapRegexps(testRegexpObjMultiProp, [' ',' '] )['city']).to.have.length.of(2);
+            expect(mapRegexps(testRegexpObjMultiProp, [' ',' '] )['lng']).to.have.length.of(2);
+            expect(mapRegexps(testRegexpObjMultiProp, [' ',' '] )['lat']).to.have.length.of(2);
         });
 
         let arrayStr2 = ['b ', 'b ', ' b', ' b'];
 
         it('array length for each nested property', function() {
-            expect(mapRegexps(testRegexpObjMultiProp, stringFixture)['colour']).should.have.length(4);
-            expect(mapRegexps(testRegexpObjMultiProp, stringFixture)['lng']).should.have.length(4);
-            expect(mapRegexps(testRegexpObjMultiProp, stringFixture)['lat']).should.have.length(4);
+            expect(mapRegexps(testRegexpObjMultiProp, arrayStr2)['city']).to.have.length.of(4);
+            expect(mapRegexps(testRegexpObjMultiProp, arrayStr2)['lng']).to.have.length.of(4);
+            expect(mapRegexps(testRegexpObjMultiProp, arrayStr2)['lat']).to.have.length.of(4);
         });
 
 
