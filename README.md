@@ -31,20 +31,21 @@ regexmap(regexObject, stringToMatch);
  }
 ```
 
-## :cloud: Installation
+## Installation
 
 ```bash
 $ npm install regexmap
 ```
 
-#### Matching an array of strings to multiple regexps
+
+### Matching an array of strings to multiple regexps
 
 ```js
 let stringsToMatch = ["My name is alexa and I am 18.", "My name is Tom and I am 25"];
 
 regexmap(regexObject, stringsToMatch);
 ```
-#### output
+#### Output
 ```js
 { 
     name: 
