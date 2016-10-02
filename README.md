@@ -12,6 +12,8 @@ $ npm install regexmap
 ```
 
 
+## Example
+
 ```js
 const regexmap = require("regexmap");
 
