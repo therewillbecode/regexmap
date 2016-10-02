@@ -1,6 +1,6 @@
 {
   "name": "regexmap",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Map multiple regular expressions to one or more strings",
   "main": "src/index.js",
   "scripts": {
