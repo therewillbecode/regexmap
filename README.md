@@ -18,7 +18,7 @@ let stringToMatch = "My name is alexa and I am 18.";
 regexmap(regexObject, stringToMatch);
 ```
 
-#### output
+#### Output
 ```js
  {
    name: [ 'alexa', 
