@@ -138,8 +138,6 @@ describe('should handle single txt source', function() {
             expect(mapRegexps(testRegexpObjMultiProp, arrayStr2)['lng']).to.have.length.of(4);
             expect(mapRegexps(testRegexpObjMultiProp, arrayStr2)['lat']).to.have.length.of(4);
         });
-
-
     });
 });
 

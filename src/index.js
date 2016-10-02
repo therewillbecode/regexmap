@@ -55,8 +55,9 @@ let regexObject = {
                     "age": /\d{2}/ 
                    };
  
-let stringToMatch = ["My name is alexa and I am 18.", "My name is alexa and I am 22."];
- let k = getMatch(regexObject.age, stringToMatch)
-//console.log(k);
+let stringToMatch = ["My name is alexa and I am 18.", "My name is Tom and I am 25"];
+
+let k = mapRegexps(regexObject, stringToMatch)
+console.log(k);
 
 
