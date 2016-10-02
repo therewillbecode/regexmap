@@ -44,14 +44,3 @@ module.exports = function (regexpDict, sourceTxt) {
   return mapRegexps(regexpDict, sourceTxt);
 };
 
-let regexObject = {
-                    "name": /alexa/, 
-                    "age": /\d{2}/ 
-                   };
- 
-let stringToMatch = "My name is alexa and I am 18.";
- 
-let f =mapRegexps(regexObject, stringToMatch);
-console.log(f)
-
-
