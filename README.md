@@ -47,13 +47,27 @@ regexmap(regexObject, stringsToMatch);
 ```
 #### Output
 ```js
-{ 
-    name: 
-        [ [ 'alexa', index: 11, input: 'My name is alexa and I am 18.' ],
-          null ],
-    age: 
-        [ [ '18', index: 26, input: 'My name is alexa and I am 18.' ],
-        [ '25', index: 24, input: 'My name is tom and I am 25' ] ] 
+{
+    name: [
+        [
+            'alexa',
+            index: 11,
+            input: 'My name is alexa and I am 18.'
+        ],
+        null
+    ],
+    age: [
+        [
+            '18',
+            index: 26,
+            input: 'My name is alexa and I am 18.'
+        ],
+        [
+            '25',
+            index: 24,
+            input: 'My name is tom and I am 25'
+        ]
+    ]
 }
 ```
 
