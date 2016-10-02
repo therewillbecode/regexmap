@@ -41,7 +41,7 @@ $ npm install regexmap
 ### Matching an array of strings to multiple regexps
 
 ```js
-let stringsToMatch = ["My name is alexa and I am 18.", "My name is Tom and I am 25"];
+let stringsToMatch = ["My name is alexa and I am 18.", "My name is tom and I am 25"];
 
 regexmap(regexObject, stringsToMatch);
 ```
@@ -53,7 +53,7 @@ regexmap(regexObject, stringsToMatch);
           null ],
     age: 
         [ [ '18', index: 26, input: 'My name is alexa and I am 18.' ],
-        [ '25', index: 24, input: 'My name is Tom and I am 25' ] ] 
+        [ '25', index: 24, input: 'My name is tom and I am 25' ] ] 
 }
 ```
 
