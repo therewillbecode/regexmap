@@ -15,18 +15,16 @@ let getMatch = index.__get__("getMatch");
 
 let stringFixture = fs.readFileSync("./test/fixtures/listing1.txt", "utf8");
 let testRegexp = /(?:","truncated_localized_city":")([\w ]+)/
-
-
 let testRegexpObjMultiProp = {
     'city': testRegexp, 
     'lng': /(?:"lng":)([+-]?(?:\d*\.)?\d+)/,
     'lat': /(?:"lat":)([+-]?(?:\d*\.)?\d+)/
 };
 
-  let testRegexpObjNullProps = {
-        'colour': /bluewhite/,
-        'lng': /(?:"lng":)([+-]?(?:\d*\.)?\d+)/,
-    };
+let testRegexpObjNullProps = {
+    'colour': /bluewhite/,
+    'lng': /(?:"lng":)([+-]?(?:\d*\.)?\d+)/,
+};
 
 
 describe('validateRegexObj', function() {
@@ -65,7 +63,6 @@ describe('get match', function() {
         expect(getMatch(testRegexp, stringFixture)).to.be.an('array');
     });
 
-
     it('array should contain regex match', function() {
         expect(getMatch(testRegexp, stringFixture)).to.contain('London');
     });
@@ -74,26 +71,21 @@ describe('get match', function() {
         expect(getMatch(testRegexp, 'testString')).to.be.a('null');
     });
 
- it('return array when sourcetxt is an empty array ', function() {
+    it('return array when sourcetxt is an empty array ', function() {
         expect(getMatch(testRegexp, [] )).to.to.be.an('array');
     });
 
- it('return array when sourcetxt is an array length 2 ', function() {
+    it('return array when sourcetxt is an array length 2 ', function() {
         expect(getMatch(/g/, ['g', 'g'] )).to.have.length.of(2);
     });
 
-
-
- it('return array of length 4 sourcetxt is an array length 4 ', function() {
+    it('return array of length 4 sourcetxt is an array length 4 ', function() {
         expect(getMatch(/d/, ['d', 'd', 'd', 'd'] )).to.have.length.of(4);
     });
-
-
 });
 
 
 describe('mapRegexps', function() {
-    
     let testRegexpObj = {'city': testRegexp}
 
     it('should return an object', function() {
@@ -113,29 +105,25 @@ describe('should handle single txt source', function() {
     let arrayStr = [' ', ' '];
     let regexp1 = /bluewhite/;
 
-
     it('should match values for multiple properties of object', function() {
         expect(mapRegexps(testRegexpObjMultiProp, stringFixture)['city']).to.contain('London');
         expect(mapRegexps(testRegexpObjMultiProp, stringFixture)['lat']).to.contain('51.507351');
         expect(mapRegexps(testRegexpObjMultiProp, stringFixture)['lng']).to.contain('-0.127758');
     });
 
-
     it('should map non-matched regexps as null', function() {
         expect(mapRegexps(testRegexpObjNullProps, stringFixture)['colour']).to.be.null;
         expect(mapRegexps(testRegexpObjNullProps, stringFixture)['lng']).to.contain('-0.127758');
     });
 });
-    describe('when sourceTxt arg is an array', function() { 
-        let arrayStr = [' ', ' '];
 
+    describe('when sourceTxt arg is an array', function() { 
         it('and is ', function() {
           // console.log( mapRegexps(testRegexpObjMultiProp, stringFixture))
             expect(mapRegexps(testRegexpObjMultiProp, ['j'])['city']).to.have.length.of(1);
             expect(mapRegexps(testRegexpObjMultiProp, ['j'])['lng']).to.have.length.of(1);
             expect(mapRegexps(testRegexpObjMultiProp, ['j'])['lat']).to.have.length.of(1);
         });
-
      
         it('array length for each nested property', function() {
             expect(mapRegexps(testRegexpObjMultiProp, [' ',' '] )['city']).to.have.length.of(2);
