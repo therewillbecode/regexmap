@@ -1,6 +1,6 @@
 # regexmap 
 
-Map regex key value pairs to their matches
+Map multiple regular expressions to one or more strings
 
 [![Coverage Status](https://coveralls.io/repos/github/therewillbecode/regexmap/badge.svg?branch=master)](https://coveralls.io/github/therewillbecode/regexmap?branch=master)
 
