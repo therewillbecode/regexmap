@@ -32,14 +32,9 @@ function validateRegexObj(obj) {
 };
 
 function getMatch(regexp, sourceTxt) {
-if (_.isArray(sourceTxt) === true){
-    let gg =  sourceTxt.map((val) => val.match(regexp))
-  //  console.log(gg)
- return gg
-
+  if (_.isArray(sourceTxt) === true){
+    return sourceTxt.map((val) => val.match(regexp))
   }
-
-
   let match = sourceTxt.match(regexp);
 
   return match;
@@ -48,16 +43,4 @@ if (_.isArray(sourceTxt) === true){
 module.exports = function (regexpDict, sourceTxt) {
   return mapRegexps(regexpDict, sourceTxt);
 };
-
-
-let regexObject = {
-                    "name": /alexa/, 
-                    "age": /\d{2}/ 
-                   };
- 
-let stringToMatch = ["My name is alexa and I am 18.", "My name is Tom and I am 25"];
-
-let k = mapRegexps(regexObject, stringToMatch)
-console.log(k);
-
 
