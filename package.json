@@ -1,7 +1,7 @@
 {
   "name": "regexmap",
   "version": "1.1.1",
-  "description": "Map regex key value pairs to their matches",
+  "description": "Map multiple regular expressions to one or more strings",
   "main": "src/index.js",
   "scripts": {
     "test": "mocha",
@@ -15,7 +15,9 @@
     "regexp",
     "map",
     "mapping",
-    "regexes"
+    "regexes",
+    "string",
+    "match"
   ],
   "repository": {
     "type": "git",
