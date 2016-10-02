@@ -1,19 +1,11 @@
-# regexmap v1.1.0
+# regexmap v1.1.1
+
+Map regex key value pairs to their matches
 
 [![Coverage Status](https://coveralls.io/repos/github/therewillbecode/regexmap/badge.svg?branch=master)](https://coveralls.io/github/therewillbecode/regexmap?branch=master)
 
 
-Map regex key value pairs to their matches
-
-## :cloud: Installation
-
-```
-$ npm install --save regexmap
-```
-
-## Example
-
-```
+```js
 const regexmap = require("regexmap");
 
 let regexObject = {
@@ -24,16 +16,55 @@ let regexObject = {
 let stringToMatch = "My name is alexa and I am 18.";
 
 regexmap(regexObject, stringToMatch);
-//
-// {
-//   name: [ 'alexa', 
-//           index: 11, 
-//           input: 'My name is alexa and I am 18.' ],
-// 
-//   age:  [ '18',
-//           index: 26,
-//           input: 'My name is alexa and I am 18.' ]
-// }
+```
 
+### output
+```js
+ {
+   name: [ 'alexa', 
+           index: 11, 
+           input: 'My name is alexa and I am 18.' ],
+ 
+   age:  [ '18',
+           index: 26,
+           input: 'My name is alexa and I am 18.' ]
+ }
+```js
+
+## :cloud: Installation
+
+```bash
+$ npm install regexmap
+```
+
+## Example
+
+#### matching an array of strings to multipe regexps
+
+```js
+let stringsToMatch = ["My name is alexa and I am 18.", "My name is Tom and I am 25"];
+
+regexmap(regexObject, stringsToMatch);
+```
+#### output
+```js
+{ 
+    name: 
+        [ [ 'alexa', index: 11, input: 'My name is alexa and I am 18.' ],
+          null ],
+    age: 
+        [ [ '18', index: 26, input: 'My name is alexa and I am 18.' ],
+        [ '25', index: 24, input: 'My name is Tom and I am 25' ] ] 
+}
+```
+
+## Tests
+
+  To run the test suite, first install the dependencies, then run `npm test`:
+
+```bash
+$ npm install
+$ npm test
+```
 
 ### Contributions are welcome
