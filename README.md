@@ -5,6 +5,13 @@ Map multiple regular expressions to one or more strings
 [![Coverage Status](https://coveralls.io/repos/github/therewillbecode/regexmap/badge.svg?branch=master)](https://coveralls.io/github/therewillbecode/regexmap?branch=master)
 
 
+## Installation
+
+```bash
+$ npm install regexmap
+```
+
+
 ```js
 const regexmap = require("regexmap");
 
@@ -29,12 +36,6 @@ regexmap(regexObject, stringToMatch);
            index: 26,
            input: 'My name is alexa and I am 18.' ]
  }
-```
-
-## Installation
-
-```bash
-$ npm install regexmap
 ```
 
 
