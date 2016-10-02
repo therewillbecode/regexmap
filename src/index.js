@@ -7,7 +7,7 @@ const _ = require("lodash");
  *
  * @private
  * @param {Object} Contains regex name and a regexp object i.e { 'name': /alexa/, 'age': /\d{2}/ } to iterate over.
- * @param {String} The string for which to match the regexps in each property of object.
+ * @param {String | Array} The string or array of strings for which to match the regexps in each property of object.
  * @returns {Object} Returns the original object where property values are the result of the match.
  */
 function mapRegexps(regexpDict, sourceTxt) {
@@ -43,4 +43,15 @@ function getMatch(regexp, sourceTxt) {
 module.exports = function (regexpDict, sourceTxt) {
   return mapRegexps(regexpDict, sourceTxt);
 };
+
+let regexObject = {
+                    "name": /alexa/, 
+                    "age": /\d{2}/ 
+                   };
+ 
+let stringToMatch = "My name is alexa and I am 18.";
+ 
+let f =mapRegexps(regexObject, stringToMatch);
+console.log(f)
+
 
