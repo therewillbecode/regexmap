@@ -44,7 +44,10 @@ regexmap(regexObject, stringToMatch);
 ### Matching an array of strings to multiple regexps
 
 ```js
-let stringsToMatch = ["My name is alexa and I am 18.", "My name is tom and I am 25"];
+let stringsToMatch = [
+    "My name is alexa and I am 18.",
+    "My name is tom and I am 25"
+];
 
 regexmap(regexObject, stringsToMatch);
 ```
