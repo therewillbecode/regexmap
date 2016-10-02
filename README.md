@@ -1,4 +1,4 @@
-# regexmap v1.1.1
+# regexmap 
 
 Map regex key value pairs to their matches
 
@@ -18,7 +18,7 @@ let stringToMatch = "My name is alexa and I am 18.";
 regexmap(regexObject, stringToMatch);
 ```
 
-### output
+#### output
 ```js
  {
    name: [ 'alexa', 
@@ -29,7 +29,7 @@ regexmap(regexObject, stringToMatch);
            index: 26,
            input: 'My name is alexa and I am 18.' ]
  }
-```js
+```
 
 ## :cloud: Installation
 
@@ -37,9 +37,7 @@ regexmap(regexObject, stringToMatch);
 $ npm install regexmap
 ```
 
-## Example
-
-#### matching an array of strings to multipe regexps
+#### Matching an array of strings to multiple regexps
 
 ```js
 let stringsToMatch = ["My name is alexa and I am 18.", "My name is Tom and I am 25"];
